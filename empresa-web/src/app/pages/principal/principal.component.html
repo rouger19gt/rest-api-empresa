@@ -1,0 +1,50 @@
+<h2>Agregar Nuevo Empleado</h2>
+<div>
+  <input type="text" placeholder="Nombre" [(ngModel)]="nuevoEmpleado.nombre" />
+  <input type="text" placeholder="Apellidos" [(ngModel)]="nuevoEmpleado.apellidos" />
+  <input type="text" placeholder="Género (M/F)" maxlength="1" [(ngModel)]="nuevoEmpleado.genero" />
+  <input type="date" placeholder="Fecha de Nacimiento" [(ngModel)]="nuevoEmpleado.fechaNacimiento" />
+  <input type="text" placeholder="Número Identificación" [(ngModel)]="nuevoEmpleado.numeroIdentificacion" />
+
+  <button (click)="agregarEmpleado()">Guardar</button>
+</div>
+<hr />
+<h2>Actualizar Empleado</h2>
+<div>
+  <input type="number" placeholder="ID" [(ngModel)]="empleadoActualizar.id" />
+  <input type="text" placeholder="Nombre" [(ngModel)]="empleadoActualizar.nombre" />
+  <input type="text" placeholder="Apellidos" [(ngModel)]="empleadoActualizar.apellidos" />
+  <input type="text" placeholder="Género (M/F)" maxlength="1" [(ngModel)]="empleadoActualizar.genero" />
+  <input type="date" placeholder="Fecha de Nacimiento" [(ngModel)]="empleadoActualizar.fechaNacimiento" />
+  <input type="text" placeholder="Número Identificación" [(ngModel)]="empleadoActualizar.numeroIdentificacion" />
+
+  <button (click)="actualizarEmpleado()">Actualizar</button>
+</div>
+<h2>Lista de Empleados</h2>
+<table border="1" width="100%" style="border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Género</th>
+      <th>Fecha Nacimiento</th>
+      <th>Número Identificación</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empleados">
+      <td>{{ emp.id }}</td>
+      <td>{{ emp.nombre }}</td>
+      <td>{{ emp.apellidos }}</td>
+      <td>{{ emp.genero }}</td>
+      <td>{{ emp.fechaNacimiento }}</td>
+      <td>{{ emp.numeroIdentificacion }}</td>
+      <td>
+        <button (click)="eliminarEmpleado(emp.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
